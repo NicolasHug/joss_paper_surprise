@@ -55,6 +55,17 @@ explore new recommendation ideas by supporting the creation of custom
 prediction algorithms, but can also serve as a learning resource for students
 and less experienced users thanks to its detailed documentation.
 
+Other popular recommendation libraries with similar functionalities include
+`LibRec` [@librec] (Java) or `MyMediaLite` [@mymedialite] (C#). In Python,
+`OpenRec` [@openrec] and `Spotlight` [@spotlight] support neural-network
+inspired algorithms; `implicit` [^1] is specialized in implicit feedback
+recommendation, and `LightFM` [@lightfm] implements a hybrid algorithm based
+on matrix factorization. To the best of our knowledge, `Surprise` is the only
+library to provide a `scikit-learn` like API with model selection tools, and
+with a focus on explicit rating prediction.
+
+[^1]: [https://github.com/benfred/implicit](https://github.com/benfred/implicit)
+
 # Example
 
 Here is a simple example showing how to (down)load a dataset, split it into
@@ -72,7 +83,7 @@ data = Dataset.load_builtin('ml-100k')
 # Use the famous SVD algorithm, with default parameters.
 algo = SVD()
 
-# Run 5-fold cross-validation and print results. The can also be returned.
+# Run 5-fold cross-validation and print results. They can also be returned.
 cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
 
 # printed output:
